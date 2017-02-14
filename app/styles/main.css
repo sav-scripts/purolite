@@ -1,0 +1,1569 @@
+/** common mixins **/
+html {
+  padding: 0;
+  margin: 0;
+}
+body {
+  position: absolute;
+  width: 100%;
+  overflow-x: hidden;
+  background: white;
+  padding: 0;
+  margin: 0;
+}
+@media (max-width: 1280px) {
+  body {
+    width: 1280px;
+    overflow-x: auto;
+  }
+}
+body.unscrollable {
+  overflow-y: hidden;
+}
+.template-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.bound {
+  position: absolute;
+  border: 1px solid red;
+  margin-left: -1px;
+  margin-top: -1px;
+  z-index: 1000;
+  pointer-events: none;
+}
+.bound .text {
+  position: absolute;
+  top: 4px;
+  width: 200px;
+  height: 20px;
+  left: 50%;
+  margin-left: -100px;
+  color: red;
+  text-align: center;
+}
+/* menu */
+#menu {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  min-width: 1280px;
+  height: 83px;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+#menu .logo {
+  position: absolute;
+  left: 20px;
+  top: 13px;
+  width: 198px;
+  height: 56px;
+  margin-left: 0px;
+  margin-top: 0px;
+  background-image: url("../images/logo.png");
+  background-size: auto;
+}
+#menu .mobile-button-container,
+#menu .mobile-btn-open {
+  display: none;
+}
+#menu .button-container {
+  position: absolute;
+  right: 35px;
+  top: 26px;
+}
+#menu .button-container .btn {
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 24px;
+  color: #000;
+  margin-left: 36px;
+  color: #333333;
+  float: left;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  transition: color 0.3s ease-in;
+}
+#menu .button-container .btn.focused,
+#menu .button-container .btn:hover {
+  color: #00a0e9;
+  transition: color 0.3s ease-out;
+}
+#menu .button-container .button-bar {
+  position: absolute;
+  left: 0;
+  top: 39px;
+  margin-left: 36px;
+  width: 48px;
+  height: 7px;
+  background-color: #33b3ed;
+}
+@media (max-width: 1280px) {
+  #menu {
+    height: 73px;
+  }
+  #menu .logo {
+    position: absolute;
+    left: 20px;
+    top: 9px;
+    width: 190px;
+    height: 56px;
+    margin-left: 0px;
+    margin-top: 0px;
+    background-image: url("../images/logo.png");
+    background-size: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  #menu .button-container .btn {
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 20px;
+    color: #000;
+    margin-left: 30px;
+  }
+  #menu .button-container .button-bar {
+    top: 31px;
+    margin-left: 30px;
+    height: 6px;
+  }
+}
+/* news-popup */
+#news-popup {
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  background-image: url("../images/news-popup-bg.jpg");
+  background-size: cover;
+}
+#news-popup .layout {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/layouts/news-popup.jpg");
+  background-size: auto;
+  opacity: .3;
+}
+#news-popup .container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#news-popup .container .content {
+  position: absolute;
+  width: 1280px;
+  height: auto;
+  left: 50%;
+  margin-left: -640px;
+}
+#news-popup .container .content .btn-close {
+  position: absolute;
+  right: 89px;
+  top: 42px;
+  background-image: url("../images/news-popup-btn-close.png");
+  background-size: auto;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+#news-popup .container .content .thumb {
+  margin-top: 88px;
+  margin-left: 114px;
+  width: 1080px;
+  height: 450px;
+  background: rgba(0, 0, 0, 0.3);
+}
+#news-popup .container .content .pdf-download {
+  position: absolute;
+  right: 87px;
+  top: 570px;
+  background-image: url("../images/news-popup-btn-download.png");
+  background-size: auto;
+  width: 118px;
+  height: 22px;
+  cursor: pointer;
+}
+#news-popup .container .content .pdf-download:active {
+  top: 571px;
+}
+#news-popup .container .content .texts {
+  margin-top: 20px;
+  margin-left: 114px;
+  width: 1080px;
+  height: auto;
+}
+#news-popup .container .content .texts .title {
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 36px;
+  color: #333333;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#news-popup .container .content .texts .time {
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 19.5px;
+  color: #999999;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#news-popup .container .content .texts .detail {
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 25.5px;
+  color: #666666;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+/* main-page */
+#main-page {
+  /*
+    .percent-div(my-image, -600, -314, 1900, 628, "sample.png");
+    @media (max-width: 1280px){
+        .percent-div(my-image, -600, -314, 1200, 628, "sample.png");
+    }
+    @media (max-width: 640px){
+        .percent-div(my-image, -300, -157, 600, 314, "sample.png");
+    }
+    */
+  /*
+    .my-image{
+        .centralized-div(50%, 50%, 1200px, 628px);
+        .image-bg("sample.png");
+    }
+    */
+}
+#main-page .main-layout {
+  position: absolute;
+  width: 1920px;
+  height: 8000px;
+  background-image: url("../images/layouts/main-layout.jpg");
+  background-size: auto;
+  opacity: .3;
+}
+#main-page .main-content {
+  width: 100%;
+  overflow: hidden;
+}
+#main-page .select-list {
+  height: 55%;
+  width: 363%;
+  padding-left: 10%;
+  padding-right: 80%;
+  border: 2px solid #333333;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: white url("../images/select-icon.png") no-repeat right;
+  background-size: contain;
+  cursor: pointer;
+  color: #999;
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 26%;
+  color: #000;
+  text-align: left;
+  text-align-last: left;
+}
+#main-page .dot-button-container {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+  text-align: center;
+}
+#main-page .dot-button-container .btn {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-image: url("../images/dot-button.png");
+  background-size: auto;
+  display: inline-block;
+  cursor: pointer;
+}
+#main-page .dot-button-container .btn.focused,
+#main-page .dot-button-container .btn:hover {
+  background-position: right;
+}
+#main-page #index {
+  position: relative;
+  margin-top: 83px;
+  /*
+        .down-arrow{
+            position: absolute;
+            bottom: 100px;
+            left:50%;
+
+            width: 275px;
+            height: 143px;
+
+            margin-left: -137px;
+
+            .image-bg('down-arrow.png');
+        }
+        */
+}
+@media (max-width: 1280px) {
+  #main-page #index {
+    margin-top: 73px;
+  }
+}
+#main-page #index .bg-1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/index-bg-1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#main-page #index .bg-2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/index-bg-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#main-page #index .bg-2 {
+  left: 100%;
+}
+#main-page #index .content {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  left: 50%;
+  top: 50%;
+}
+#main-page #index .content .title {
+  position: absolute;
+  left: -293%;
+  top: -16%;
+  width: 593%;
+  height: 68%;
+  background-image: url("../images/index-title.png");
+  background-size: cover;
+}
+#main-page #index .content .description {
+  position: absolute;
+  left: -394%;
+  top: 127%;
+  width: 738%;
+  height: 85%;
+  background-image: url("../images/index-desc.png");
+  background-size: cover;
+}
+#main-page #index .content .down-arrow {
+  position: absolute;
+  left: -137%;
+  top: 232%;
+  width: 275%;
+  height: 143%;
+  background-image: url("../images/down-arrow.png");
+  background-size: cover;
+}
+@keyframes arrow-move {
+  from {
+    opacity: .5;
+    margin-top: 0;
+  }
+  to {
+    opacity: 1;
+    margin-top: 10px;
+  }
+}
+#main-page #index .content .down-arrow {
+  animation-name: arrow-move;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#main-page #product {
+  position: relative;
+}
+#main-page #product .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/product-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#main-page #product .content {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  left: 50%;
+  top: 50%;
+}
+#main-page #product .content .title {
+  position: absolute;
+  left: -381%;
+  top: -227%;
+  width: 780%;
+  height: 67%;
+  background-image: url("../images/product-title.png");
+  background-size: cover;
+}
+#main-page #product .content .description {
+  position: absolute;
+  left: -599%;
+  top: -116%;
+  width: 1230%;
+  height: 103%;
+  background-image: url("../images/product-desc.png");
+  background-size: cover;
+}
+#main-page #product .content .select-list {
+  position: absolute;
+  left: -169%;
+  top: 27%;
+}
+#main-page #industry {
+  position: relative;
+}
+#main-page #industry .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/industry-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#main-page #industry .content {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  left: 50%;
+  top: 50%;
+}
+#main-page #industry .content .title {
+  position: absolute;
+  left: -368%;
+  top: -163%;
+  width: 742%;
+  height: 66%;
+  background-image: url("../images/industry-title.png");
+  background-size: cover;
+}
+#main-page #industry .content .description {
+  position: absolute;
+  left: -576%;
+  top: -62%;
+  width: 1180%;
+  height: 86%;
+  background-image: url("../images/industry-desc.png");
+  background-size: cover;
+}
+#main-page #industry .content .select-list {
+  position: absolute;
+  left: -169%;
+  top: 72%;
+}
+#main-page #apply {
+  position: relative;
+}
+#main-page #apply .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/apply-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#main-page #apply .content {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  left: 50%;
+  top: 50%;
+}
+#main-page #apply .content .title {
+  position: absolute;
+  left: -218%;
+  top: -181%;
+  width: 442%;
+  height: 68%;
+  background-image: url("../images/apply-title.png");
+  background-size: cover;
+}
+#main-page #apply .content .description {
+  position: absolute;
+  left: -576%;
+  top: -80%;
+  width: 1180%;
+  height: 85%;
+  background-image: url("../images/apply-desc.png");
+  background-size: cover;
+}
+#main-page #apply .content .select-list {
+  position: absolute;
+  left: -169%;
+  top: 39%;
+}
+#main-page #brand {
+  position: relative;
+}
+#main-page #brand .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/brand-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#main-page #brand .content {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  left: 50%;
+  top: 50%;
+}
+#main-page #brand .content .title {
+  position: absolute;
+  left: -180%;
+  top: -366%;
+  width: 368%;
+  height: 66%;
+  background-image: url("../images/brand-title.png");
+  background-size: cover;
+}
+#main-page #brand .content .description {
+  position: absolute;
+  left: -576%;
+  top: -264%;
+  width: 1180%;
+  height: 85%;
+  background-image: url("../images/brand-desc.png");
+  background-size: cover;
+}
+#main-page #brand .content .select-list {
+  position: absolute;
+  left: -169%;
+  top: -126%;
+}
+#main-page #live {
+  position: relative;
+}
+#main-page #live .bg-1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/live-bg-1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#main-page #live .bg-2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/live-bg-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#main-page #live .content {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  left: 50%;
+  top: 50%;
+}
+#main-page #live .content .title {
+  position: absolute;
+  left: -521%;
+  top: -206%;
+  width: 1048%;
+  height: 306%;
+  background-image: url("../images/live-title.png");
+  background-size: cover;
+}
+#main-page #live .content .description {
+  position: absolute;
+  left: -752%;
+  top: -58%;
+  width: 1530%;
+  height: 254%;
+  background-image: url("../images/live-desc.png");
+  background-size: cover;
+}
+#main-page #live .content .btn-more {
+  position: absolute;
+  left: -101%;
+  top: 135%;
+  width: 212%;
+  height: 77%;
+  background-image: url("../images/live-btn-more.png");
+  background-size: cover;
+}
+#main-page #live .content .btn-more {
+  cursor: pointer;
+}
+#main-page #live .content .btn-more:hover {
+  background-position: bottom;
+}
+#main-page #about {
+  position: relative;
+}
+#main-page #about .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/about-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#main-page #about .content {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  left: 50%;
+  top: 50%;
+}
+#main-page #about .content .title {
+  position: absolute;
+  left: -687%;
+  top: -295%;
+  width: 592%;
+  height: 142%;
+  background-image: url("../images/about-title.png");
+  background-size: cover;
+}
+#main-page #about .content .description {
+  position: absolute;
+  left: -688%;
+  top: -100%;
+  width: 784%;
+  height: 137%;
+  background-image: url("../images/about-desc.png");
+  background-size: cover;
+}
+#main-page #about .content .select-list {
+  position: absolute;
+  left: -689%;
+  top: 72%;
+}
+#main-page #news {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 1080px;
+}
+#main-page #news .bg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 720px;
+  background-image: url("../images/news-bg.png");
+  background-size: auto;
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
+#main-page #news .news-title {
+  background-image: url("../images/news-title.png");
+  background-size: auto;
+  position: absolute;
+  width: 244px;
+  height: 55px;
+  top: 50px;
+  left: 50%;
+  margin-left: -122px;
+}
+#main-page #news .news-container {
+  position: absolute;
+  left: 50%;
+  top: 170px;
+  width: 1280px;
+  margin-left: -640px;
+}
+#main-page #news .news-container .news-block {
+  display: inline-block;
+  visibility: hidden;
+  width: 240px;
+  background-color: #dddddd;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+#main-page #news .news-container .news-block .thumb {
+  margin-left: 2px;
+  margin-top: 2px;
+  width: 236px;
+  height: 300px;
+  background: #cccccc;
+  float: left;
+}
+#main-page #news .news-container .news-block .detail {
+  margin-left: 2px;
+  margin-bottom: 2px;
+  width: 236px;
+  height: auto;
+  background: white;
+  float: left;
+}
+#main-page #news .news-container .news-block .detail .title,
+#main-page #news .news-container .news-block .detail .description,
+#main-page #news .news-container .news-block .detail .more {
+  margin: 10px 20px;
+}
+#main-page #news .news-container .news-block .detail .title {
+  margin-top: 20px;
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 19.5px;
+  color: #000;
+  color: #999999;
+}
+#main-page #news .news-container .news-block .detail .description {
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 27px;
+  color: #000;
+  color: #333333;
+}
+#main-page #news .news-container .news-block .detail .more {
+  margin-bottom: 20px;
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 18px;
+  color: #000;
+  color: #00a0e9;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#main-page #news .news-container .news-block .focus-bar {
+  margin-left: 2px;
+  margin-top: -4px;
+  width: 236px;
+  height: 4px;
+  background: #09a3e9;
+  float: left;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+#main-page #news .news-container .news-block:hover .focus-bar {
+  opacity: 1;
+}
+#main-page #news .news-more {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 476px;
+  background-image: url("../images/news-bottom-cover.png");
+  background-size: auto;
+  background-repeat: repeat-x;
+  pointer-events: none;
+}
+#main-page #news .news-more .btn {
+  position: absolute;
+  background-image: url("../images/news-more.png");
+  background-size: auto;
+  left: 50%;
+  bottom: 20px;
+  width: 132px;
+  height: 52px;
+  margin-left: -66px;
+  cursor: pointer;
+  pointer-events: all;
+}
+#main-page #concat {
+  position: relative;
+  min-height: 1080px;
+  width: 100%;
+  overflow: hidden;
+}
+#main-page #concat .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/concat-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#main-page #concat .details {
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+#main-page #concat .details .icons {
+  background-image: url("../images/concat-icons.png");
+  background-size: auto;
+  width: 838px;
+  height: 96px;
+  position: absolute;
+  left: -419px;
+  top: 70px;
+}
+#main-page #concat .details .address,
+#main-page #concat .details .phone-fax,
+#main-page #concat .details .emails {
+  position: absolute;
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 26px;
+  color: #000;
+  text-align: center;
+  top: 210px;
+  width: 400px;
+  margin-left: -200px;
+}
+#main-page #concat .details .address {
+  left: -380px;
+}
+#main-page #concat .details .phone-fax {
+  left: 0;
+}
+#main-page #concat .details .emails {
+  left: 380px;
+}
+#main-page #concat .concat-form {
+  position: absolute;
+  background-image: url("../images/concat-form-bg.png");
+  background-size: auto;
+  width: 1066px;
+  height: 610px;
+  left: 50%;
+  margin-left: -533px;
+  top: 350px;
+}
+#main-page #concat .concat-form .input-field {
+  position: absolute;
+  font-family: '微軟正黑體', "Heiti TC", serif;
+  font-size: 36px;
+  color: #000;
+  color: #00a0e9;
+  border: none;
+  background: transparent;
+}
+#main-page #concat .concat-form .field-name {
+  left: 150px;
+  top: 116px;
+  width: 350px;
+  height: 40px;
+}
+#main-page #concat .concat-form .field-phone {
+  left: 690px;
+  top: 116px;
+  width: 350px;
+  height: 40px;
+}
+#main-page #concat .concat-form .field-email {
+  left: 150px;
+  top: 183px;
+  width: 350px;
+  height: 40px;
+}
+#main-page #concat .concat-form .field-company {
+  left: 690px;
+  top: 183px;
+  width: 350px;
+  height: 40px;
+}
+#main-page #concat .concat-form .field-title {
+  left: 185px;
+  top: 248px;
+  width: 855px;
+  height: 40px;
+}
+#main-page #concat .concat-form .field-content {
+  left: 152px;
+  top: 316px;
+  width: 888px;
+  height: 204px;
+  resize: none;
+}
+#main-page #concat .concat-form .btn-send {
+  position: absolute;
+  right: 30px;
+  bottom: 22px;
+  background-image: url("../images/concat-btn-send.png");
+  background-size: auto;
+  width: 100px;
+  height: 25px;
+  cursor: pointer;
+}
+#main-page #concat .concat-form .btn-send:active {
+  bottom: 21px;
+}
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+    width: 640px;
+  }
+  /* menu */
+  #menu {
+    width: 100%;
+    min-width: 100%;
+    height: 135px;
+  }
+  #menu .logo {
+    position: absolute;
+    left: 40px;
+    top: 33px;
+    width: 252px;
+    height: 71px;
+    margin-left: 0px;
+    margin-top: 0px;
+    background-image: url("../images/logo.m.png");
+    background-size: auto;
+  }
+  #menu .button-container {
+    display: none;
+  }
+  #menu .mobile-btn-open {
+    position: absolute;
+    display: block;
+    right: 40px;
+    top: 40px;
+    cursor: pointer;
+    background-image: url("../images/menu-btn-open.m.png");
+    background-size: auto;
+    width: 83px;
+    height: 56px;
+  }
+  #menu .mobile-button-container {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 135px;
+    width: 100%;
+    height: calc(100% - 135px);
+    background: rgba(0, 0, 0, 0.3);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  #menu .mobile-button-container .buttons .btn {
+    position: relative;
+    width: 100%;
+    height: 78px;
+    background-color: #00adef;
+    border-bottom: 1px solid #80d6f7;
+    text-align: center;
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 40px;
+    color: white;
+    line-height: 78px;
+    cursor: pointer;
+  }
+  /* news-popup */
+  #news-popup {
+    background-color: #ffffff;
+    background-image: url("../images/news-popup-bg.m.png");
+    background-size: auto;
+    background-position: bottom;
+    background-repeat: repeat-x;
+  }
+  #news-popup .container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  #news-popup .container .content {
+    position: absolute;
+    width: 640px;
+    height: auto;
+    left: 50%;
+    margin-left: -320px;
+  }
+  #news-popup .container .content .btn-close {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    background-image: url("../images/news-popup-btn-close.m.png");
+    background-size: auto;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  #news-popup .container .content .thumb {
+    margin-top: 88px;
+    margin-left: 45px;
+    width: 550px;
+    height: 230px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  #news-popup .container .content .pdf-download {
+    background-image: url("../images/news-popup-btn-download.m.png");
+    background-size: auto;
+    right: 48px;
+    top: 440px;
+    width: 139px;
+    height: 26px;
+  }
+  #news-popup .container .content .pdf-download:active {
+    top: 441px;
+  }
+  #news-popup .container .content .texts {
+    margin-top: 20px;
+    margin-left: 45px;
+    width: 550px;
+    height: auto;
+  }
+  #news-popup .container .content .texts .title {
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 36px;
+    color: #333333;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  #news-popup .container .content .texts .time {
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 19.5px;
+    color: #999999;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  #news-popup .container .content .texts .detail {
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 25.5px;
+    color: #666666;
+    margin-top: 90px;
+    margin-bottom: 30px;
+  }
+  /* main-page */
+  #main-page .main-layout {
+    position: absolute;
+    width: 640px;
+    height: 8000px;
+    background-image: url("../images/layouts/main-layout.m.jpg");
+    background-size: auto;
+    opacity: .3;
+  }
+  #main-page .main-content {
+    width: 100%;
+    overflow: hidden;
+  }
+  #main-page #index {
+    margin-top: 135px;
+    min-height: 960px;
+  }
+  #main-page #index .bg-1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/index-bg-1.m.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #main-page #index .bg-2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/index-bg-2.m.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #main-page #index .content .title {
+    position: absolute;
+    left: -146%;
+    top: -86%;
+    width: 293%;
+    height: 152%;
+    background-image: url("../images/index-title.m.png");
+    background-size: cover;
+  }
+  #main-page #index .content .description {
+    position: absolute;
+    left: -189%;
+    top: 92%;
+    width: 378%;
+    height: 96%;
+    background-image: url("../images/index-desc.m.png");
+    background-size: cover;
+  }
+  #main-page #index .content .down-arrow {
+    position: absolute;
+    left: -137%;
+    top: 212%;
+    width: 275%;
+    height: 143%;
+    background-image: url("../images/down-arrow.png");
+    background-size: cover;
+  }
+  #main-page #product {
+    min-height: 960px;
+  }
+  #main-page #product .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/product-bg.m.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #main-page #product .content .title {
+    position: absolute;
+    left: -212%;
+    top: -337%;
+    width: 424%;
+    height: 152%;
+    background-image: url("../images/product-title.m.png");
+    background-size: cover;
+  }
+  #main-page #product .content .description {
+    position: absolute;
+    left: -233%;
+    top: -116%;
+    width: 467%;
+    height: 276%;
+    background-image: url("../images/product-desc.m.png");
+    background-size: cover;
+  }
+  #main-page #product .content .select-list {
+    left: -181%;
+    top: 287%;
+  }
+  #main-page #industry {
+    min-height: 960px;
+  }
+  #main-page #industry .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/industry-bg.m.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #main-page #industry .content .title {
+    position: absolute;
+    left: -227%;
+    top: -283%;
+    width: 455%;
+    height: 147%;
+    background-image: url("../images/industry-title.m.png");
+    background-size: cover;
+  }
+  #main-page #industry .content .description {
+    position: absolute;
+    left: -274%;
+    top: -62%;
+    width: 548%;
+    height: 196%;
+    background-image: url("../images/industry-desc.m.png");
+    background-size: cover;
+  }
+  #main-page #industry .content .select-list {
+    left: -181%;
+    top: 192%;
+  }
+  #main-page #apply {
+    min-height: 960px;
+  }
+  #main-page #apply .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/apply-bg.m.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #main-page #apply .content .title {
+    position: absolute;
+    left: -218%;
+    top: -214%;
+    width: 442%;
+    height: 68%;
+    background-image: url("../images/apply-title.m.png");
+    background-size: cover;
+  }
+  #main-page #apply .content .description {
+    position: absolute;
+    left: -201%;
+    top: -116%;
+    width: 403%;
+    height: 132%;
+    background-image: url("../images/apply-desc.m.png");
+    background-size: cover;
+  }
+  #main-page #apply .content .select-list {
+    left: -181%;
+    top: 69%;
+  }
+  #main-page #brand {
+    min-height: 960px;
+  }
+  #main-page #brand .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/brand-bg.m.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #main-page #brand .content .title {
+    position: absolute;
+    left: -180%;
+    top: -247%;
+    width: 368%;
+    height: 68%;
+    background-image: url("../images/brand-title.m.png");
+    background-size: cover;
+  }
+  #main-page #brand .content .description {
+    position: absolute;
+    left: -202%;
+    top: -134%;
+    width: 405%;
+    height: 132%;
+    background-image: url("../images/brand-desc.m.png");
+    background-size: cover;
+  }
+  #main-page #brand .content .select-list {
+    left: -181%;
+    top: 50%;
+  }
+  #main-page #live {
+    min-height: 960px;
+  }
+  #main-page #live .bg-1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/live-bg-1.m.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #main-page #live .bg-2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/live-bg-2.m.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #main-page #live .content .title {
+    position: absolute;
+    left: -302%;
+    top: -366%;
+    width: 605%;
+    height: 404%;
+    background-image: url("../images/live-title.m.png");
+    background-size: cover;
+  }
+  #main-page #live .content .description {
+    position: absolute;
+    left: -305%;
+    top: -107%;
+    width: 610%;
+    height: 323%;
+    background-image: url("../images/live-desc.m.png");
+    background-size: cover;
+  }
+  #main-page #live .content .btn-more {
+    top: 180%;
+  }
+  #main-page #about {
+    min-height: 960px;
+  }
+  #main-page #about .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/about-bg.m.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #main-page #about .content .title {
+    position: absolute;
+    left: -221%;
+    top: -100%;
+    width: 442%;
+    height: 238%;
+    background-image: url("../images/about-title.m.png");
+    background-size: cover;
+  }
+  #main-page #about .content .description {
+    position: absolute;
+    left: -232%;
+    top: 170%;
+    width: 465%;
+    height: 132%;
+    background-image: url("../images/about-desc.m.png");
+    background-size: cover;
+  }
+  #main-page #about .content .select-list {
+    left: -181%;
+    top: 342%;
+  }
+  #main-page #news {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 1080px;
+  }
+  #main-page #news .bg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 720px;
+    background-image: url("../images/news-bg.png");
+    background-size: auto;
+    background-position: bottom;
+    background-repeat: repeat-x;
+  }
+  #main-page #news .news-title {
+    background-image: url("../images/news-title.m.png");
+    background-size: auto;
+    width: 302px;
+    height: 70px;
+    top: 50px;
+    margin-left: -151px;
+  }
+  #main-page #news .news-container {
+    position: absolute;
+    left: 50%;
+    top: 170px;
+    width: 640px;
+    margin-left: -320px;
+  }
+  #main-page #news .news-container .news-block {
+    display: inline-block;
+    visibility: hidden;
+    width: 552px;
+    background-color: #dddddd;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  #main-page #news .news-container .news-block .thumb {
+    margin-left: 2px;
+    margin-top: 2px;
+    width: 548px;
+    height: 300px;
+    background: #cccccc;
+    float: left;
+  }
+  #main-page #news .news-container .news-block .detail {
+    margin-left: 2px;
+    margin-bottom: 2px;
+    width: 548px;
+    height: auto;
+    background: white;
+    float: left;
+  }
+  #main-page #news .news-container .news-block .detail .title,
+  #main-page #news .news-container .news-block .detail .description,
+  #main-page #news .news-container .news-block .detail .more {
+    margin: 10px 20px;
+  }
+  #main-page #news .news-container .news-block .detail .title {
+    margin-top: 20px;
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 19.5px;
+    color: #000;
+    color: #999999;
+  }
+  #main-page #news .news-container .news-block .detail .description {
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 27px;
+    color: #000;
+    color: #333333;
+  }
+  #main-page #news .news-container .news-block .detail .more {
+    margin-bottom: 20px;
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 18px;
+    color: #000;
+    color: #00a0e9;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  #main-page #news .news-container .news-block .focus-bar {
+    margin-left: 2px;
+    margin-top: -4px;
+    width: 548px;
+    height: 4px;
+    background: #09a3e9;
+    float: left;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  #main-page #news .news-container .news-block:hover .focus-bar {
+    opacity: 1;
+  }
+  #main-page #news .news-more {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 476px;
+    background-image: url("../images/news-bottom-cover.png");
+    background-size: auto;
+    background-repeat: repeat-x;
+    pointer-events: none;
+  }
+  #main-page #news .news-more .btn {
+    position: absolute;
+    background-image: url("../images/news-more.png");
+    background-size: auto;
+    left: 50%;
+    bottom: 20px;
+    width: 132px;
+    height: 52px;
+    margin-left: -66px;
+    cursor: pointer;
+    pointer-events: all;
+  }
+  #main-page #concat {
+    min-height: 2147px;
+    width: 100%;
+    overflow: hidden;
+  }
+  #main-page #concat .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/concat-bg.m.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #main-page #concat .details {
+    position: absolute;
+    left: 50%;
+    top: 0;
+  }
+  #main-page #concat .details .icons {
+    background-image: url("../images/concat-icons.m.png");
+    background-size: auto;
+    width: 99px;
+    height: 797px;
+    left: -50px;
+    top: 50px;
+  }
+  #main-page #concat .details .address,
+  #main-page #concat .details .phone-fax,
+  #main-page #concat .details .emails {
+    position: absolute;
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 37px;
+    color: #000;
+    text-align: center;
+    width: 500px;
+    margin-left: -250px;
+  }
+  #main-page #concat .details .address {
+    left: 0;
+    top: 180px;
+  }
+  #main-page #concat .details .phone-fax {
+    left: 0;
+    top: 542px;
+  }
+  #main-page #concat .details .emails {
+    left: 0;
+    top: 880px;
+  }
+  #main-page #concat .concat-form {
+    background-image: url("../images/concat-form-bg.m.png");
+    background-size: auto;
+    width: 557px;
+    height: 936px;
+    left: 50%;
+    margin-left: -278px;
+    top: 1080px;
+  }
+  #main-page #concat .concat-form .input-field {
+    position: absolute;
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 36px;
+    color: #000;
+    color: #00a0e9;
+    border: none;
+    background: transparent;
+  }
+  #main-page #concat .concat-form .field-name {
+    left: 140px;
+    top: 172px;
+    width: 383px;
+    height: 40px;
+  }
+  #main-page #concat .concat-form .field-phone {
+    left: 173px;
+    top: 376px;
+    width: 350px;
+    height: 40px;
+  }
+  #main-page #concat .concat-form .field-email {
+    left: 140px;
+    top: 240px;
+    width: 383px;
+    height: 40px;
+  }
+  #main-page #concat .concat-form .field-company {
+    left: 173px;
+    top: 308px;
+    width: 350px;
+    height: 40px;
+  }
+  #main-page #concat .concat-form .field-title {
+    left: 173px;
+    top: 444px;
+    width: 350px;
+    height: 40px;
+  }
+  #main-page #concat .concat-form .field-content {
+    left: 140px;
+    top: 514px;
+    width: 384px;
+    height: 274px;
+    resize: none;
+  }
+  #main-page #concat .concat-form .btn-send {
+    position: absolute;
+    right: 43px;
+    bottom: 47px;
+    background-image: url("../images/concat-btn-send.m.png");
+    background-size: auto;
+    width: 136px;
+    height: 33px;
+  }
+  #main-page #concat .concat-form .btn-send:active {
+    bottom: 46px;
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Purolite",
+  "description": "Purolite",
+  "version": "0.0.0",
+  "devDependencies": {
+    "bower": "~1.2.8",
+    "grunt": "~0.4.2",
+    "grunt-contrib-clean": "",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "",
+    "grunt-contrib-cssmin": "",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-jshint": "",
+    "grunt-contrib-less": "",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-watch": "",
+    "grunt-express-server": "",
+    "grunt-filerev": "",
+    "grunt-newer": "",
+    "grunt-usemin": "^3.1.1",
+    "imagemin-pngquant": "~4.0.0",
+    "matchdep": ""
+  },
+  "dependencies": {
+    "imagemin": "^5.2.2",
+    "imagemin-mozjpeg": "^6.0.0"
+  }
+}
