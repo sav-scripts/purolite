@@ -6,11 +6,13 @@
 html {
     padding: 0;
     margin: 0;
+//    overflow: hidden;
+//    width: 100%;
 }
 body{
-    position: absolute;
+//    position: fixed;
     width: 100%;
-//    height: 100%;
+    height: 100%;
     overflow-x: hidden;
     background: @background-color;
     padding: 0;
@@ -106,13 +108,13 @@ body{
 
             float: left;
 
-            .unselectable();
+//            .unselectable();
 
             cursor: pointer;
 
             transition: color .3s ease-in;
 
-            &.focused, &:hover{
+            &.focused{
                 color: #00a0e9;
 
                 transition: color .3s ease-out;
@@ -741,23 +743,25 @@ body{
         width: 100%;
         overflow: hidden;
 
+        @scale: .7;
+
         .details{
             position: absolute;
             left:50%;
             top: 0;
 
-            @text-top: 210px;
-            @text-width: 400px;
-            @text-size: 26px;
+            @text-top: 230px;
+            @text-width: 400px * @scale;
+            @text-size: 26px * @scale;
 
             .icons{
-                .image-bg('concat-icons.png');
-                width: 838px;
-                height: 96px;
+                .image-bg('concat-icons.png', cover);
+                width: 838px * @scale;
+                height: 96px * @scale;
 
                 position: absolute;
-                left: -419px;
-                top: 70px;
+                left: -419px * @scale;
+                top: 120px;
             }
 
             .address, .phone-fax, .emails{
@@ -771,7 +775,7 @@ body{
             }
 
             .address{
-                left: -380px;
+                left: -380px * @scale;
             }
 
             .phone-fax{
@@ -779,25 +783,30 @@ body{
             }
 
             .emails{
-                left: 380px;
+                left: 380px * @scale;
             }
         }
 
         .concat-form{
+
+            @scale: 0.666;
+
             position: absolute;
             .image-bg('concat-form-bg.png');
-            width: 1066px;
-            height: 610px;
+//            width: 1066px * @scale;
+//            height: 610px * @scale;
+            width: 710px;
+            height: 406px;
 
             left: 50%;
-            margin-left: -533px;
+            margin-left: -533px * @scale;
             top: 350px;
 
             .input-field{
 
                 position: absolute;
 
-                .default-font(36px);
+                .default-font(36px * @scale);
                 color: #00a0e9;
 
                 border: none;
@@ -807,62 +816,62 @@ body{
             }
 
             .field-name{
-                left: 150px;
-                top: 116px;
-                width: 350px;
-                height: 40px;
+                left: 150px * @scale;
+                top: 116px * @scale;
+                width: 350px * @scale;
+                height: 40px * @scale;
             }
 
             .field-phone{
-                left: 690px;
-                top: 116px;
-                width: 350px;
-                height: 40px;
+                left: 690px * @scale;
+                top: 116px * @scale;
+                width: 350px * @scale;
+                height: 40px * @scale;
             }
 
             .field-email{
-                left: 150px;
-                top: 183px;
-                width: 350px;
-                height: 40px;
+                left: 150px * @scale;
+                top: 183px * @scale;
+                width: 350px * @scale;
+                height: 40px * @scale;
             }
 
             .field-company{
-                left: 690px;
-                top: 183px;
-                width: 350px;
-                height: 40px;
+                left: 690px * @scale;
+                top: 183px * @scale;
+                width: 350px * @scale;
+                height: 40px * @scale;
             }
 
             .field-title{
-                left: 185px;
-                top: 248px;
-                width: 855px;
-                height: 40px;
+                left: 185px * @scale;
+                top: 248px * @scale;
+                width: 855px * @scale;
+                height: 40px * @scale;
             }
 
             .field-content{
-                left: 152px;
-                top: 316px;
-                width: 888px;
-                height: 204px;
+                left: 152px * @scale;
+                top: 316px * @scale;
+                width: 888px * @scale;
+                height: 204px * @scale;
 
                 resize: none;
             }
 
             .btn-send{
                 position: absolute;
-                right: 30px;
-                bottom: 22px;
+                right: 20px;
+                bottom: 15px;
                 .image-bg('concat-btn-send.png');
 
-                width: 100px;
-                height: 25px;
+                width: 67px;
+                height: 17px;
 
                 cursor: pointer;
 
                 &:active{
-                    bottom:21px;
+                    bottom:14px;
                 }
             }
         }

@@ -6,7 +6,8 @@
     var $doms = {},
         _buttonDic,
         _currentFocus,
-        _isMobileOpen = false;
+        _isMobileOpen = false,
+        _alerted = false;
 
     var self = window.Menu =
     {
@@ -21,6 +22,8 @@
             $doms.buttonBar = $doms.container.find('.button-bar');
             $doms.buttons = {};
 
+            $doms.btns = $doms.buttonContainer.find(".btn");
+
             //setupButton(1, 'index');
             //setupButton(2, 'product');
             //setupButton(6, 'live');
@@ -29,13 +32,10 @@
 
             self.toContent(_buttonDic['1']);
 
-            $(window).scroll(function(){
-                $doms.container.css({
-                    'left': -$(this).scrollLeft()
-                });
-            });
 
             setupMobileButtons();
+
+            $(window).scroll(update);
 
             function setupButton(index, type)
             {
@@ -50,10 +50,10 @@
 
                 }).on('mouseout', function()
                 {
-                    barReturn();
+                    //barReturn();
                 }).on(_CLICK_, function()
                 {
-                    self.toContent(buttonName);
+                    //self.toContent(buttonName);
                     MainPage.toContent(buttonName);
                 });
             }
@@ -61,27 +61,77 @@
 
         toContent: function(contentName)
         {
-            var oldFocus = _currentFocus;
-
             _currentFocus = contentName;
 
             barTo(contentName);
 
+            $doms.btns.toggleClass('focused', false);
+
             var $btn = $doms.buttons[contentName];
             $btn.toggleClass('focused', true);
-
-            if(oldFocus)
-            {
-                var $oldBtn = $doms.buttons[oldFocus];
-                $oldBtn.toggleClass('focused', false);
-            }
         },
+
+        update: update,
 
         resize: function()
         {
             self.menuHeight = parseInt($('#menu').css('height'));
         }
     };
+
+    function update()
+    {
+        var factor = document.documentElement.clientHeight / (window.innerHeight || 0);
+        if(factor > 1) factor = 1;
+
+        if(!_alerted)
+        {
+            _alerted = true;
+            //alert($('#index').offset().top + ", " + $('#index').position().top);
+            //alert(factor);
+        }
+
+        //console.log($('#index')[0].getBoundingClientRect());
+        //console.log($('#product')[0].getBoundingClientRect());
+
+        if(Main.viewport.width > 640 && Main.viewport.width <= 1280)
+        {
+            $doms.container.css({
+                'left': -$(window).scrollLeft()
+            });
+        }
+        else
+        {
+            $doms.container.css({
+                'left': 0
+            });
+        }
+
+        var contentName,
+            menuHeight = $('#menu').height() + 1;
+
+        for(var i=1;i<=9;i++)
+        {
+            contentName = _buttonDic[i];
+            if(_buttonDic[i+1])
+            {
+                var bound1 = $('#' + _buttonDic[i])[0].getBoundingClientRect(),
+                    bound2 = $('#' + _buttonDic[i+1])[0].getBoundingClientRect();
+
+                if(bound1.top >= menuHeight)
+                {
+                    break;
+                }
+                else if(bound1.top <= menuHeight && bound2.top >= menuHeight)
+                {
+                    break;
+                }
+            }
+        }
+
+        self.toContent(contentName);
+        //console.log(contentName);
+    }
 
     function setupMobileButtons()
     {
@@ -101,7 +151,7 @@
             if(event.target == $container[0]) mobileClose();
         });
 
-        $container.css('visibility', 'hidden');
+        $container.css('display', 'block').css('visibility', 'hidden');
 
         function setupButton(index)
         {
@@ -130,12 +180,6 @@
         _isMobileOpen = false;
 
         $doms.mobileContainer.css('visibility', 'hidden');
-    }
-
-
-    function barReturn()
-    {
-        barTo(_currentFocus);
     }
 
     function barTo(buttonName)

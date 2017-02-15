@@ -4,8 +4,31 @@
     <title>普特樹脂台灣分公司</title>
     <meta charset="UTF-8">
     <link rel="icon" href="images/icon.png" type="image/x-icon"/>
-    <!--<meta name="viewport" content="width=640">-->
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=640">
+    <!--<meta name="viewport" content="width=device-width">-->
+
+    <script>
+
+        var wasUsedLandscape = false;
+        var rewrited = false;
+
+        updateViewport();
+        function updateViewport()
+        {
+            var portraitModeMinWidth = 640;
+//            var landscapeModeMinWidth = 1200;
+            var content = 'width=device-width';
+
+            if(screen.width < portraitModeMinWidth) content = 'width=640';
+
+            var divString = '<meta id="myViewport" name="viewport" content="'+content+'">';
+            document.write(divString);
+
+
+        }
+
+    </script>
+
 
     <meta name="keywords" content="PUROLITE,PUROLITE台灣,Ion Exchange Resins,Resins,樹脂,離子交換樹脂,陰陽樹脂,陰樹脂,陽樹脂,混床樹脂,無鈉離子交換樹脂,飲用水樹脂,軟水,超純水,工業級純水,家用淨水,水質處理,廢水回收,貴金屬回收,重金屬回收,貴重金屬回收,離子濾心,半導體級樹脂,不再生樹脂,螯合樹脂,NSF,FDA,GMP,人體用藥原料藥,酸洗,酸回收,硬水軟化,脫軟化純水,重金屬,除礦水,電鍍,硼
 銅,鈷,錳,鎳,汞,蛋白質,純化,蛋白質純化,酵素,固定,固定化酵素,省水,再生,低再生藥劑">

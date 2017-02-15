@@ -77,11 +77,18 @@
             //console.log('window width = ' + Main.viewport.width + ", body width = " + $('body').width());
             //console.log(document.documentElement.clientWidth + ", " + (window.innerWidth || 0));
 
-            var factor = document.documentElement.clientWidth / (window.innerWidth || 0);
 
-            if(factor > 1) factor = 1;
+            if(Main.viewport.width <= 640)
+            {
+                $doms.contents.css('height', '');
+            }
+            else
+            {
+                var factor = document.documentElement.clientWidth / (window.innerWidth || 0);
+                if(factor > 1) factor = 1;
 
-            $doms.contents.height(Main.viewport.height/factor - Menu.menuHeight);
+                $doms.contents.height(Main.viewport.height/factor - Menu.menuHeight);
+            }
 
             //$doms.contents.height(Main.viewport.height);
 

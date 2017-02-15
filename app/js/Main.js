@@ -44,7 +44,6 @@
             MainPage.init();
 
 
-
             /*
             $.ajax(
             {
@@ -91,6 +90,7 @@
 
         Menu.resize();
         MainPage.resize();
+        Menu.update();
 
 
         //ScalableContent.updateView(1280, height);
