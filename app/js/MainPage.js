@@ -42,6 +42,7 @@
                 var url = $(this)[0].value;
                 //if(url) window.open(url, '_blank');
                 if(url) window.open(url, '_self');
+                $(this)[0].selectedIndex = 0;
             });
 
             $doms.contents = $doms.container.find('.main-content');
