@@ -131,6 +131,8 @@
 
     function createNews(index)
     {
+        //console.log(_newsData);
+        //console.log(_newsData.length);
         if(index >= _newsData.length)
         {
             TweenMax.to($doms.newsMore,.5, {autoAlpha: 1});
@@ -173,7 +175,18 @@
         var img = new Image;
         img.onload = function()
         {
+            createIt();
+        };
 
+        img.onerror = function()
+        {
+            createIt();
+        };
+
+        img.src = thumbUrl;
+
+        function createIt()
+        {
             $newsBlock._img = img;
             $newsBlock._$thumb = $thumb;
 
@@ -192,9 +205,7 @@
             TweenMax.to($newsBlock,.5, {autoAlpha:1});
 
             createNews(index+1);
-        };
-
-        img.src = thumbUrl;
+        }
     }
 
     function repositionBlocks()

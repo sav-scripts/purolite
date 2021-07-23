@@ -18,7 +18,7 @@
     "grunt-filerev": "",
     "grunt-newer": "",
     "grunt-usemin": "^3.1.1",
-    "imagemin-pngquant": "~4.0.0",
+    "imagemin-pngquant": "",
     "matchdep": ""
   },
   "dependencies": {
